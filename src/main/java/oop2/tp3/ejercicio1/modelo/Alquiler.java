@@ -12,8 +12,4 @@ public class Alquiler {
     public int diasAlquilados() {
         return this.diasAlquilados;
     }
-
-    public Libro copia() {
-        return this.copia;
-    }
 }
