@@ -1,8 +1,5 @@
 package oop2.tp3.ejercicio1.modelo;
 
-import oop2.tp3.ejercicio1.calculadora.CalculadoraLibro;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,31 +26,15 @@ public class Cliente {
         return totalDeuda;
     }
 
-    public Integer puntosObtenidos(){
-        return puntosObtenidos;
-    }
 
 
-    public void calcularDeudaYPuntoObtenidos (CalculadoraLibro calculadoraMonto, Libro libro) {
-        for (Alquiler alquiler: alquileres){
-            totalDeuda += calculadoraMonto.calcularMontoLibro(alquiler);
-            puntosObtenidos++;
-            merecePuntoExtras(libro, alquiler);
+    public void calcularDeudaYPuntoObtenidos (Alquiler alquiler) {
+        for (Alquiler alquiler1: alquileres){
+            totalDeuda += alquiler.calcularMontoLibro();
+            puntosObtenidos += alquiler.puntajeLibros();
         }
     }
 
-    private void merecePuntoExtras (Libro libro, Alquiler alquiler){
-        if ((libro.esUnNuevoLanzamiento()) && (alquilerSuperaUnDia(alquiler))){
-            puntosObtenidos++;
-        }
-    }
-
-    private boolean alquilerSuperaUnDia (Alquiler alquiler){
-        if (alquiler.diasAlquilados() > ES_MAYOR_A_UNO){
-            return true;
-        }
-        return false;
-    }
 //    public Object[] calcularDeudaYPuntosObtenidos() {
 //        Object[] resultado = new Object[2];
 //        double total = 0;

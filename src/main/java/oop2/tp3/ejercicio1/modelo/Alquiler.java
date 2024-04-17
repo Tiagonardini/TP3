@@ -8,8 +8,11 @@ public class Alquiler {
         this.copia = copia;
         this.diasAlquilados = diasAlquilados;
     }
+    public double calcularMontoLibro() {
+        return this.copia.calcularMontoLibro(this.diasAlquilados);
+    }
 
-    public int diasAlquilados() {
-        return this.diasAlquilados;
+    public int puntajeLibros(){
+        return this.copia.getPuntos();
     }
 }
