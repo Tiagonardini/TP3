@@ -28,7 +28,7 @@ public class NuevoLanzamiento extends Libro{
     public int getPuntos(Integer dias) {
         if (dias > 1) {
             return puntos;
-        else
+        }else{
             return puntos - 1;
         }
     }
