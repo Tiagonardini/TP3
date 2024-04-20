@@ -23,10 +23,7 @@ public class Regular extends Libro{
         return monto;
     }
 
-    @Override
-    public boolean esUnNuevoLanzamiento() {
-        return false;
-    }
+
 
     @Override
     public int getPuntos(Integer dias) {

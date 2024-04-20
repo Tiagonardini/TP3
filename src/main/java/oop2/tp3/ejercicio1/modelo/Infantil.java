@@ -24,10 +24,7 @@ public class Infantil extends Libro{
         return monto;
     }
 
-    @Override
-    public boolean esUnNuevoLanzamiento() {
-        return false;
-    }
+
 
     @Override
     public int getPuntos(Integer dias) {

@@ -74,4 +74,8 @@ public class Cliente {
     public void alquilar(Alquiler rental) {
         alquileres.add(rental);
     }
+
+    public Integer puntosObtenidos (){
+        return this.puntosObtenidos;
+    }
 }

@@ -13,6 +13,6 @@ public class Alquiler {
     }
 
     public int puntajeLibros(){
-        return this.copia.getPuntos();
+        return this.copia.getPuntos(diasAlquilados);
     }
 }

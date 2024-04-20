@@ -9,4 +9,16 @@ public class GastoDesayuno extends Gasto{
     String nombre() {
         return "Desayuno";
     }
+
+    protected int montoComida() {
+        return this.monto;
+    }
+
+    protected boolean esExcesoDeComida() {
+        if (this.monto > 1000){
+            return true;
+        }
+        return false;
+    }
+
 }

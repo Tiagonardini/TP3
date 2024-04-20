@@ -9,4 +9,16 @@ public class GastoCena extends Gasto{
     String nombre() {
         return "Cena";
     }
+
+    protected int montoComida() {
+        return this.monto;
+    }
+
+    @Override
+    protected boolean esExcesoDeComida() {
+        if (this.monto > 5000){
+            return true;
+        }
+        return false;
+    }
 }
