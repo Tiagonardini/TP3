@@ -1,5 +1,6 @@
 package oop2.tp3.ejercicio4;
 
+
 import org.jdbi.v3.core.Jdbi;
 
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class PersonaRepository {
     public List<Persona> buscarPorNombre(String nombreOParte) throws IOException {
         return jdbi.withHandle(handle -> {
             var rs = handle
-                    .select("select nombre, apellido from persona where nombre like ?")
+                    .select("select id_persona, nombre, apellido from persona where nombre like ?")
                     .bind(0, "%" + nombreOParte + "%").mapToMap(String.class).list();
 
             Objects.requireNonNull(rs, "La lista de personas no puede ser nula.");
@@ -41,14 +42,19 @@ public class PersonaRepository {
      */
     public Persona buscarId(Long id) throws IOException {
         return jdbi.withHandle(handle -> {
+
             var rs = handle
                     .select("select nombre, apellido from persona where id_persona = ?")
                     .bind(0, id).mapToMap(String.class).list();
-            Objects.requireNonNull(rs, "La lista de personas no puede ser nula.");
-            if (rs.isEmpty()) {
+
+            if (!rs.isEmpty()) {
                 return new Persona(rs.get(0).get("nombre"), rs.get(0).get("apellido"));
-            }else throw new IOException("La persona no se encuentra dentro de la base de datos");
+            }
+            throw new IOException("No se ha podido encontrar la persona");
+
+
         });
     }
+
 
 }
